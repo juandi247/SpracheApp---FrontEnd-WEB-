@@ -37,7 +37,7 @@ const handleDeleteDeck = () => {
 
   if (token && deckToDelete) {
     setIsDeleting(true); // Activa el estado de carga
-    fetch(`${process.env.REACT_APP_API_URL}/deck/delete/${deckToDelete}`, {
+    fetch(`https://sprachebackend.website/deck/delete/${deckToDelete}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -79,7 +79,7 @@ useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     if (token) {
-      fetch(`${process.env.REACT_APP_API_URL}/deck/getall`, {
+      fetch(`https://sprachebackend.website/deck/getall`, {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,

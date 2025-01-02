@@ -14,7 +14,7 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     setIsLoading(true); // Asegúrate de activar el estado de carga aquí
-    fetch(`${process.env.REACT_APP_API_URL}/flashcard/getByDeck/${deckId}`, {
+    fetch(`https://sprachebackend.website/flashcard/getByDeck/${deckId}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -57,7 +57,7 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
       const token = localStorage.getItem("authToken");
   
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/flashcard/delete/${id}`, {
+        const response = await fetch(`https://sprachebackend.website/flashcard/delete/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -113,7 +113,7 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/flashcard/create`,
+        `https://sprachebackend.website/flashcard/create`,
         {
           method: "POST",
           headers: {

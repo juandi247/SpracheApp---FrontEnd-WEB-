@@ -18,7 +18,7 @@ export function DeckTemplatesExpo() {
     const fetchTemplates = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/template/getall`, {
+        const response = await fetch(`https://sprachebackend.website/template/getall`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -44,7 +44,7 @@ export function DeckTemplatesExpo() {
   // Fetch para las flashcards (usado en el preview)
   const fetchFlashcards = async (templateId) => {
     const token = localStorage.getItem("authToken");
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/template/preview/${templateId}`, {
+    const response = await fetch(`https://sprachebackend.website/template/preview/${templateId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -79,7 +79,7 @@ export function DeckTemplatesExpo() {
     setCopyMessage(""); // Limpiar mensajes previos
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/deck/copy/${copyTemplate.id}`, {
+      const response = await fetch(`https://sprachebackend.website/deck/copy/${copyTemplate.id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

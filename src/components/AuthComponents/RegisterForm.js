@@ -35,7 +35,7 @@ export function RegisterFormExpo() {
   
         if (token) {
           try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/validate/user`, {
+            const response = await fetch(`https://sprachebackend.website/validate/user`, {
               method: "GET",
               headers: {
                 Authorization: `Bearer ${token}`,
@@ -100,7 +100,7 @@ export function RegisterFormExpo() {
 
   
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
+        const response = await fetch(`https://sprachebackend.website/auth/register`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

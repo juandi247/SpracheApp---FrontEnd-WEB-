@@ -26,7 +26,7 @@ export function TemplateTable({ onEditDeck }) {
         }
 
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/admin/templates/getall`,
+          "https://sprachebackend.website/admin/templates/getall",
           {
             method: "GET",
             headers: {

@@ -89,7 +89,7 @@ export function WritingTopicSelector({ level, onBack, onTopicSelect }) {
         throw new Error("No auth token found");
       }
   
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/ai/generate-instructions`, {
+      const response = await fetch(`https://sprachebackend.website/ai/generate-instructions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

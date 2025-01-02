@@ -58,7 +58,7 @@ export function GenerateDeckPreview({ isOpen, onClose, onConfirm, flashcards, na
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/ai/create`, {
+      const response = await fetch(`https://sprachebackend.website/ai/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

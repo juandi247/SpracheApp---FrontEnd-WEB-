@@ -52,7 +52,7 @@ export default function FlashcardGame({ deckId, deckName, onClose }) {
   // Fetch de las flashcards desde el API
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    fetch(`${process.env.REACT_APP_API_URL}/progress/flashcards/${deckId}`, {
+    fetch(`https://sprachebackend.website/progress/flashcards/${deckId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -181,7 +181,7 @@ export default function FlashcardGame({ deckId, deckName, onClose }) {
     console.log(reviews);
   
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/progress`, {
+      const response = await fetch("https://sprachebackend.website/progress", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

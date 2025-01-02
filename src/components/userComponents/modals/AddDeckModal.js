@@ -26,7 +26,7 @@ export function AddDeckModalExpo({ addDeck }) {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/deck/create`, {
+      const response = await fetch(`https://sprachebackend.website/deck/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

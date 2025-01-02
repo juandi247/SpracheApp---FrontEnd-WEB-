@@ -14,7 +14,7 @@ export function TemplateFlashcardEditor({ deckId, deckName, onClose }) {
   
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    fetch(`${process.env.REACT_APP_API_URL}/admin/getByTemplate/${deckId}`, {
+    fetch(`https://sprachebackend.website/admin/getByTemplate/${deckId}`, {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -93,7 +93,7 @@ export function TemplateFlashcardEditor({ deckId, deckName, onClose }) {
   
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/admin/flashcard/create`,
+        `https://sprachebackend.website/admin/flashcard/create`,
         {
           method: "POST",
           headers: {

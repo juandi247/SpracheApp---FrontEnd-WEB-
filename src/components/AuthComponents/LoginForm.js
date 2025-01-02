@@ -30,7 +30,7 @@ export function LoginFormExpo() {
      
       if (token) {
         try {
-          const response = await fetch(`${process.env.REACT_APP_API_URL}/validate/user`, {
+          const response = await fetch(`https://sprachebackend.website/validate/user`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,

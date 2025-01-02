@@ -27,7 +27,7 @@ export function WritingFeedback({ submission, onTryAgain,level,topic }) {
 
 
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/ai/correct-text`, {
+        const response = await fetch(`https://sprachebackend.website/ai/correct-text`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
