@@ -28,7 +28,7 @@ export function ArticleGameExpo({ difficulty, onClose }) {
   const fetchWordsByDifficulty = async (difficulty) => {
     try {
       const token = localStorage.getItem("authToken"); // Obtén el token de auth
-      const response = await fetch(`https://sprachebackend.website/minigame/getwords/${difficulty}`, {
+      const response = await fetch("https://sprachebackend.website/minigame/getwords/${difficulty}", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

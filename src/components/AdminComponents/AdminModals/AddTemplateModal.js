@@ -27,7 +27,7 @@ export function AddTemplateModalExpo({ addDeck }) {
     }
   
     try {
-      const response = await fetch(`https://sprachebackend.website/admin/templates/create`, {
+      const response = await fetch("https://sprachebackend.website/admin/templates/create", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

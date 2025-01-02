@@ -11,7 +11,7 @@ export function SentencePracticeModal({ isOpen, onClose, word }) {
   const token= localStorage.getItem("authToken")
   const handleCheck = async () => {
     try {
-        const response = await fetch("https://sprachebackend.website/ai/correct-sentenc", {
+        const response = await fetch("https://sprachebackend.website/ai/correct-sentence", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

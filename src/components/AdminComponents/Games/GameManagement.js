@@ -21,7 +21,7 @@ export function GameManagement() {
     setError(null);
     const authToken = localStorage.getItem("authToken");
 
-    fetch(`https://sprachebackend.website/admin/minigame/get_words/${category}`, {
+    fetch("https://sprachebackend.website/admin/minigame/get_words/${category}", {
       method: "GET",
       headers: {
         "Authorization": `Bearer ${authToken}`,

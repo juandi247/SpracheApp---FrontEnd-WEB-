@@ -29,7 +29,7 @@ import {
   
         setLoading(true);
         try {
-          const response = await fetch(`https://sprachebackend.website/admin/users?page=${currentPage-1}`, {
+          const response = await fetch("https://sprachebackend.website/admin/users?page=${currentPage-1}", {
             headers: {
               Authorization: `Bearer ${token}`, // Agregar el Bearer token aquí
             },

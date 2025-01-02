@@ -30,7 +30,7 @@ export function LoginFormExpo() {
      
       if (token) {
         try {
-          const response = await fetch(`https://sprachebackend.website/validate/user`, {
+          const response = await fetch("https://sprachebackend.website/validate/user", {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ export function LoginFormExpo() {
     const { username, password } = formData;
 
     try {
-      const response = await fetch('https://sprachebackend.website/auth/login', {
+      const response = await fetch("https://sprachebackend.website/auth/login", {
 
       
         method: "POST",

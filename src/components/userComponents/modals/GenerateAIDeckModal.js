@@ -80,7 +80,7 @@ export function GenerateAIDeckModal() {
       setGeneratedFlashcards([]);
       const authToken = localStorage.getItem("authToken");
       try {
-          const response = await fetch(`https://sprachebackend.website/ai`, {        
+          const response = await fetch("https://sprachebackend.website/ai", {        
               method: "POST",
               headers: {
                  'Content-Type': 'application/json',
