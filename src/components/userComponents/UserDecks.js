@@ -79,7 +79,7 @@ useEffect(() => {
     const token = localStorage.getItem("authToken");
 
     if (token) {
-      fetch(`https://sprachebackend.website/deck/getall`, {
+      fetch("https://sprachebackend.website/deck/getall", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`,
