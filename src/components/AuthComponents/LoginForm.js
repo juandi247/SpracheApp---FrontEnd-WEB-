@@ -72,7 +72,7 @@ export function LoginFormExpo() {
     const { username, password } = formData;
 
     try {
-      const response = await fetch('https://sprachebackend.website/auth/register', {
+      const response = await fetch('https://sprachebackend.website/auth/login', {
 
       
         method: "POST",
