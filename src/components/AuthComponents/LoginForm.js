@@ -72,7 +72,9 @@ export function LoginFormExpo() {
     const { username, password } = formData;
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
+      const response = await fetch('https://sprachebackend.website/auth/register', {
+
+      
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +92,7 @@ export function LoginFormExpo() {
       setSuccess(true);
       setLoading(false);
       //ASIGN TOken FOR CACHE
-     
+    
       localStorage.setItem('authToken', data.token);
       localStorage.setItem('username',data.username)
       
