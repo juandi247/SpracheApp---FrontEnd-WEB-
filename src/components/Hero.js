@@ -2,9 +2,18 @@ import React from 'react';
 import { Sparkles } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Gamepad2 } from "lucide-react"; // Asegúrate de tener este ícono o cámbialo si prefieres otro
+import { useNavigate } from 'react-router-dom';
+
 
 
 export function HeroExported() {
+  const navigate=useNavigate();
+  const gotoRegister = () => {
+    navigate('/register');  // Redirigir a la página de login
+  };
+
+
+
   return (
     <div className="relative overflow-hidden bg-white pt-16">
       <div className="absolute inset-0 -z-10">
@@ -21,12 +30,14 @@ export function HeroExported() {
           Learn smarter, not harder.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-        <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-6 text-lg font-semibold rounded-lg flex items-center gap-2">
+        <Button onClick={gotoRegister}
+         className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-6 text-lg font-semibold rounded-lg flex items-center gap-2">
     Start Learning Free
     <Sparkles className="h-6 w-6" /> {/* Ícono del mismo tamaño */}
   </Button>
   
   <Button 
+  onClick={gotoRegister}
     variant="outline" 
     className="flex items-center gap-2 px-8 py-6 text-lg font-semibold text-yellow-600 border-2 border-yellow-500 rounded-lg hover:bg-yellow-100 transition-colors"
   >
