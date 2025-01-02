@@ -14,7 +14,7 @@ export function CopyTemplateModal({ isOpen, onClose, template }) {
     setCopyMessage(""); // Limpiar cualquier mensaje previo
 
     try {
-      const response = await fetch("https://sprachebackend.website/deck/copy/${template.id}", {
+      const response = await fetch(`https://sprachebackend.website/deck/copy/${template.id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

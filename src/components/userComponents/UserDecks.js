@@ -37,7 +37,7 @@ const handleDeleteDeck = () => {
 
   if (token && deckToDelete) {
     setIsDeleting(true); // Activa el estado de carga
-    fetch("https://sprachebackend.website/deck/delete/${deckToDelete}", {
+    fetch(`https://sprachebackend.website/deck/delete/${deckToDelete}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`,

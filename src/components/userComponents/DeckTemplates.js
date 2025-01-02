@@ -79,7 +79,7 @@ export function DeckTemplatesExpo() {
     setCopyMessage(""); // Limpiar mensajes previos
 
     try {
-      const response = await fetch("https://sprachebackend.website/deck/copy/${copyTemplate.id}", {
+      const response = await fetch(`https://sprachebackend.website/deck/copy/${copyTemplate.id}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
