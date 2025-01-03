@@ -24,7 +24,7 @@ export function DashboardHeaderExpo() {
         <div className="flex items-center justify-between h-16">
           {/* Título y saludo */}
           <div className="flex items-center space-x-4">
-            <h1 className="text-xl font-bold text-yellow-600">SpracheLearning</h1>
+            <h1 className="text-xl font-bold text-yellow-600">SpracheApp</h1>
             {/* Bandera de Alemania */}
             <img 
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1280px-Flag_of_Germany.svg.png" 

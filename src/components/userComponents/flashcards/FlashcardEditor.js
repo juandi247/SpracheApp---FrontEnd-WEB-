@@ -5,11 +5,14 @@ import { useState } from "react";
 import { FlashcardList } from "./FlashcardList";
 import { AddFlashcardForm } from "./AddFlashcardForm";
 import { useEffect } from "react";
+import { UnsavedChangesModal } from "../modals/UnsavedChangesModal";
 
 export function FlashcardEditor({ deckId, deckName, onClose }) {
   const [flashcards, setFlashcards] = useState([]);
   const [isLoading, setIsLoading]= useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [showUnsavedModal, setShowUnsavedModal] = useState(false);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -44,9 +47,36 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
       ...flashcards,
       { id: flashcards.length + 1, ...newCard, isNew: true },
     ]);
+    setHasUnsavedChanges(true);
   };
 
 
+
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    // Simulate saving
+    handleSaveChanges();
+    setIsSaving(false);
+    setHasUnsavedChanges(false);
+    onClose();
+  };
+
+
+
+  const handleBack = () => {
+    if (hasUnsavedChanges) {
+      setShowUnsavedModal(true);
+    } else {
+      onClose();
+    }
+  };
+
+
+  const handleDiscard = () => {
+    console.log('Changes discarded');
+    onClose();
+  };
 
   const handleDeleteCard = async (id, isNew) => {
     if (isNew) {
@@ -79,12 +109,36 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
 
 
 
-  const handleEditCard = (editedCard) => {
+  const handleEditCard = async (editedCard) => {
     setFlashcards(
       flashcards.map((card) =>
         card.id === editedCard.id ? { ...editedCard, isNew: false } : card
       )
     );
+
+    const token = localStorage.getItem("authToken");
+  
+    try {
+      const response = await fetch(`https://sprachebackend.website/flashcard/edit/${editedCard.id}`, {
+        method: "PATCH", 
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(editedCard), // Envías solo los campos editados
+      });
+  
+      if (!response.ok) {
+        throw new Error("Error al editar la flashcard");
+      }
+  
+      console.log("Flashcard actualizada correctamente");
+    } catch (error) {
+      console.error("Error al actualizar la flashcard:", error);
+    }
+  
+    
+  
   };
 
 
@@ -148,7 +202,7 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
   return (
     <div className="space-y-6">
       <div className="flex items-center">
-        <Button variant="ghost" onClick={onClose}>
+        <Button variant="ghost" onClick={handleBack}>
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Decks
         </Button>
@@ -197,6 +251,13 @@ export function FlashcardEditor({ deckId, deckName, onClose }) {
         <AddFlashcardForm onAdd={handleAddCard} />
       </Card>
     </div>
+
+    <UnsavedChangesModal 
+        isOpen={showUnsavedModal}
+        onClose={() => setShowUnsavedModal(false)}
+        onSave={handleSave}
+        onDiscard={handleDiscard}
+      />
   </div>
 );
 }

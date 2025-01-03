@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { GenerateDeckPreview } from "./GenerateDeckPreview";
 import { useState } from "react";
 import { useEffect } from "react";
+import { data } from "react-router-dom";
 
 export function GenerateAIDeckModal() {
     const [isOpen, setIsOpen] = useState(false);
@@ -89,28 +90,31 @@ export function GenerateAIDeckModal() {
               body: body
           });
   
-          if (response.ok) {
+          if (response.ok && data.length!==0) {
               const data = await response.json();
+              console.log(data)
               setGeneratedFlashcards(data);
-    
+
               setShowPreview(true);
               
           } else {
            
-              console.error("You surpased the 3 uses of ai response:", response.status, response.statusText);
-              setErrorMessage(`You surpased the 3 uses of ai functionalities. Come back later`);
+            setErrorMessage("This AI functionality is currently very busy. Please try again.");
               
           }
       } catch (error) {
         
           console.error("Error generating flashcards:", error);
           
-          setErrorMessage(`You surpased the 3 uses of ai functionalities. Come back later`);
+          setErrorMessage("This AI functionality is currently very busy. Please try again.");
         } finally {
           setLoading(false);
       }
   };
   
+
+
+
 
 
 
@@ -168,8 +172,8 @@ export function GenerateAIDeckModal() {
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select content type" />
                                 </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="words">Words</SelectItem>
+                                <SelectContent className="bg-white">
+                                <SelectItem value="words">Words</SelectItem>
                                     <SelectItem value="phrases">Phrases</SelectItem>
                                 </SelectContent>
                             </Select>
@@ -180,8 +184,8 @@ export function GenerateAIDeckModal() {
                                 <SelectTrigger>
                                     <SelectValue placeholder="Select language" />
                                 </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="en">English</SelectItem>
+                                <SelectContent className="bg-white">
+                                <SelectItem value="en">English</SelectItem>
                                     <SelectItem value="es">Spanish</SelectItem>
                                 </SelectContent>
                             </Select>

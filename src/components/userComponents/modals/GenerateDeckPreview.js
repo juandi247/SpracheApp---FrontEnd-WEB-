@@ -67,9 +67,7 @@ export function GenerateDeckPreview({ isOpen, onClose, onConfirm, flashcards, na
         body: JSON.stringify(payload),
       });
 
-      console.log("hhhh")
-      console.log(JSON.stringify(payload))
-      console.log(payload + "hashah")
+    
 
       if (!response.ok) {
         throw new Error("Failed to create deck");

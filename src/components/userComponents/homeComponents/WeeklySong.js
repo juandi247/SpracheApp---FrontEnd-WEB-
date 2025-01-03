@@ -12,10 +12,11 @@ export function WeeklySong() {
         <iframe
           width="100%"
           height="100%"
-          src="https://www.youtube.com/embed/sTAvm_Fk09M"
+          src="https://www.youtube.com/embed/Fpu5a0Bl8eY"
+        
           title="German Song of the Week"
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
       </div>

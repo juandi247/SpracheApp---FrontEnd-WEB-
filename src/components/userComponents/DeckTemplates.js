@@ -4,6 +4,8 @@ import { Copy, Eye, Star } from "lucide-react";
 import { useState, useEffect } from "react";
 import { PreviewTemplateModal } from "./modals/PreviewTemplateModal";
 import { CopyTemplateModal } from "./modals/CopyTemplateModal";
+import { TemplateSearch } from "./Templates/TemplateSearch";
+import { TemplateFilters } from "./Templates/TemplateFilters";
 
 export function DeckTemplatesExpo() {
   const [templates, setTemplates] = useState([]);
@@ -12,6 +14,24 @@ export function DeckTemplatesExpo() {
   const [isLoading, setIsLoading] = useState(false); // Estado para el loading
   const [copyMessage, setCopyMessage] = useState(""); // Mensaje de éxito/error
   const [error, setError] = useState(null); // Estado para manejar errores
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filters, setFilters] = useState({
+    level: "all",
+    wordCount: [0, 50]
+  });
+
+  const filteredTemplates = templates.filter(template => {
+    const searchMatch = template.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                       template.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const levelMatch = filters.level === "all" || template.lenguageLevel === filters.level;
+
+    const wordCountMatch = template.totalWords >= filters.wordCount[0] && 
+                          template.totalWords <= filters.wordCount[1];
+
+    return searchMatch && levelMatch && wordCountMatch;
+  });
+
+  
 
   // Cargar los templates al montar el componente
   useEffect(() => {
@@ -59,10 +79,18 @@ export function DeckTemplatesExpo() {
 
   // Estilos dinámicos para las badges
   const getBadgeStyle = (level) => {
-    if (level.startsWith("A")) {
+    if (level.startsWith("A1")) {
       return "bg-red-100 text-red-800";
-    } else if (level.startsWith("B")) {
+    }
+    else if (level.startsWith("A2")) {
       return "bg-green-100 text-green-800";
+    } 
+    else if (level.startsWith("B1")) {
+      return "bg-green-100 text-green-800";
+    } 
+    else if (level.startsWith("B2")) {
+      return "bg-green-100 text-green-800";
+      
     } else if (level.startsWith("C")) {
       return "bg-purple-100 text-purple-800";
     } else {
@@ -116,8 +144,16 @@ export function DeckTemplatesExpo() {
           {error}
         </div>
       )}
+      <div className="flex items-center gap-4">
+        <TemplateSearch 
+          value={searchTerm}
+          onChange={setSearchTerm}
+        />
+        <TemplateFilters onFilterChange={setFilters} />
+      </div>
+       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {templates.map((template) => (
+        {filteredTemplates.map((template) => (
           <Card
             key={template.id}
             className="p-6 hover:shadow-lg transition-shadow relative"

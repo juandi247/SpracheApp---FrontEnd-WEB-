@@ -1,6 +1,5 @@
 import { Card } from "../../../ui/Card";
-import { Volume2 } from "lucide-react";
-import { Button } from "../../../ui/Button";
+
 
 export function WeeklyWord() {
   return (
@@ -13,9 +12,7 @@ export function WeeklyWord() {
               <p className="text-3xl font-bold text-purple-700">Gemütlichkeit</p>
               <p className="text-gray-600 mt-1">noun • [gə-myt-likh-kayt]</p>
             </div>
-            <Button variant="ghost" size="icon" className="text-purple-600">
-              <Volume2 className="h-6 w-6" />
-            </Button>
+          
           </div>
           <div>
             <p className="text-lg text-gray-700">A state of warmth, friendliness, and good cheer</p>

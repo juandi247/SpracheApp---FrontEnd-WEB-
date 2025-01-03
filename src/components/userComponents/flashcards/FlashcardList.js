@@ -66,14 +66,25 @@ export function FlashcardList({ flashcards, onDelete, onEdit, isload }) {
                 )}
               </TableCell>
               <TableCell>
-                <div className="flex space-x-1">
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => handleEdit(card)}
-                  >
-                    <Edit2 className="h-4 w-4 text-yellow-600" />
-                  </Button>
+              <div className="flex space-x-1">
+          {/* Solo mostrar el botón de Editar si la flashcard no es nueva */}
+          {!card.isNew ? (
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => handleEdit(card)}
+      >
+        <Edit2 className="h-4 w-4 text-yellow-600" />
+      </Button>
+    ) : (
+      <Button
+        variant="ghost"
+        size="icon"
+       className="h-4 w-4 text-yellow-600"
+
+      >
+      </Button>
+    )}
                   <Button
                     variant="ghost"
                     size="icon"
