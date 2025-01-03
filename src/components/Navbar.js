@@ -61,7 +61,7 @@ export function NavarbarExported() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <BookOpen className="h-6 w-6 text-yellow-500" />
-                    <span className="ml-2 font-bold text-gray-900">DeutschLearn</span>
+                    <span className="ml-2 font-bold text-gray-900">SpracheApp</span>
                   </div>
                   <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
                     <X className="h-5 w-5" />

@@ -16,8 +16,8 @@ export function Contact() {
         {/* Información de contacto */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
           {[ 
-            { icon: Mail, text: "support@deutschlearn.com" },
-            { icon: Phone, text: "+49 123 456 789" },
+            { icon: Mail, text: "juand.diaza@gmail.com" },
+            { icon: Phone, text: "+57 3014444608" },
             { icon: MapPin, text: "Berlin, Germany" },
           ].map(({ icon: Icon, text }) => (
             <div key={text} className="flex items-center justify-center gap-x-4 rounded-2xl bg-white p-6 shadow-xl hover:shadow-2xl transition-shadow"> {/* Centrado en cada card */}
