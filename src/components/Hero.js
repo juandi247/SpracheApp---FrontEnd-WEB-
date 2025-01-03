@@ -9,7 +9,8 @@ import { useNavigate } from 'react-router-dom';
 export function HeroExported() {
   const navigate=useNavigate();
   const gotoRegister = () => {
-    navigate('/register');  // Redirigir a la página de login
+    navigate('/register', { replace: true });  // Redirigir a la página de login
+
   };
 
 

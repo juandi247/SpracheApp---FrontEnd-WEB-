@@ -44,7 +44,7 @@ export function RegisterFormExpo() {
   
             if (response.status === 200) {
               // Si el token es válido, redirigir al dashboard
-              navigate("/dashboard");
+              navigate('/dashboard', { replace: true });
 
             } else {
               // Si no es válido, eliminar el token del almacenamiento
@@ -125,8 +125,8 @@ export function RegisterFormExpo() {
 
 
         setTimeout(() => {
-            navigate("/dashboard");  // Redirige después de la animación
-          }, 1000);  // Tiempo para ver la animación // Redirige a la página del dashboard
+          navigate('/dashboard', { replace: true });
+        }, 1000);  // Tiempo para ver la animación // Redirige a la página del dashboard
 
   
       } catch (err) {

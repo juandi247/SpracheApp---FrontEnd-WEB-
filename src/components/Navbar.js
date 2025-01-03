@@ -10,7 +10,7 @@ export function NavarbarExported() {
 
 
   const handleLoginClick = () => {
-    navigate('/login');  // Redirigir a la página de login
+    navigate('/login', { replace: true });  // Redirigir a la página de login
   };
 
   const handleRegisterClick = () => {

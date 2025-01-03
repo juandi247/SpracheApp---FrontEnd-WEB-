@@ -39,7 +39,8 @@ export function LoginFormExpo() {
 
           if (response.status === 200) {
             // Si el token es válido, redirigir al dashboard
-            navigate("/dashboard");
+            navigate('/dashboard', { replace: true });
+
          
 
           } else {
@@ -97,7 +98,7 @@ export function LoginFormExpo() {
       localStorage.setItem('username',data.username)
       
       setTimeout(() => {
-        navigate("/dashboard");  // Redirige después de la animación
+        navigate('/dashboard', { replace: true });
       }, 500);  // Tiempo para ver la animación
 
     } catch (err) {
