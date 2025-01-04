@@ -16,7 +16,7 @@ export function Contact() {
         {/* Información de contacto */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-16">
           {[ 
-            { icon: Mail, text: "juand.diaza@gmail.com" },
+            { icon: Mail, text: "spracheapp.contact@gmail.com" },
             { icon: Phone, text: "+57 3014444608" },
             { icon: MapPin, text: "Berlin, Germany" },
           ].map(({ icon: Icon, text }) => (
