@@ -38,7 +38,7 @@ export function DeckTemplatesExpo() {
     const fetchTemplates = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await fetch(`https://sprachebackend.website/template/getall`, {
+        const response = await fetch(`https://sprachebackend.website/api/template/getall`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -64,7 +64,7 @@ export function DeckTemplatesExpo() {
   // Fetch para las flashcards (usado en el preview)
   const fetchFlashcards = async (templateId) => {
     const token = localStorage.getItem("authToken");
-    const response = await fetch(`https://sprachebackend.website/template/preview/${templateId}`, {
+    const response = await fetch(`https://sprachebackend.website/api/template/preview/${templateId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
